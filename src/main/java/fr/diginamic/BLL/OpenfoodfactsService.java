@@ -65,8 +65,38 @@ public class OpenfoodfactsService {
         for (String additif : additifs) {
             additifsdditifs.add(new Additifs(additif));
         }
-        produit.setAdditifses(additifsdditifs);
+        Set<Additifs> additifsSet = (Set) getDescriptiList(o.get(28),"-",new Additifs());
+        for (DescriptifProduit descriptifProduit : additifsSet) {
+            System.out.println(descriptifProduit instanceof Allergene);
+        }
+
+        produit.setAdditifses(additifsSet);
+
         return produit;
+    }
+    private Set<DescriptifProduit> getDescriptiList(String o,String regex,DescriptifProduit target){
+        Set<DescriptifProduit> DescriptifProduitList = new HashSet<>();
+        String[] DescriptifProduits = o.split(regex);
+        for (String DescriptifProduit : DescriptifProduits) {
+            target.setLibelle(DescriptifProduit);
+            DescriptifProduitList.add(target);
+        }
+        return DescriptifProduitList;
+    }
+
+
+    private <T extends DescriptifProduit> Set<T> getDescriptiListGen(String o,String regex,Class<T> clazz){
+        Set<T> DescriptifProduitList = new HashSet<>();
+        String[] DescriptifProduits = o.split(regex);
+        for (String DescriptifProduit : DescriptifProduits) {
+            target.setLibelle(DescriptifProduit);
+            DescriptifProduitList.add(target);
+        }
+        return DescriptifProduitList;
+    }
+    public DescriptifProduit checkIfExist(DescriptifProduit descriptifProduit){
+
+        return null;
     }
 
 }

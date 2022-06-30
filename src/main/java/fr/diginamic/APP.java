@@ -26,17 +26,17 @@ public class APP {
             Produit produit = opfService.createProduit(line);
             if (produit != null) produitList.add(produit);
         }
-        em.getTransaction().begin();
-        for (int i = 0; i < produitList.size(); i++) {
-                em.persist(produitList.get(i));
-            if ((i % 50) == 0){
-                em.flush();
-                em.clear();
-                em.getTransaction().commit();
-                em.getTransaction().begin();
-            }
-        }
-        em.getTransaction().commit();
+//        em.getTransaction().begin();
+//        for (int i = 0; i < produitList.size(); i++) {
+//                em.persist(produitList.get(i));
+//            if ((i % 50) == 0){
+//                em.flush();
+//                em.clear();
+//                em.getTransaction().commit();
+//                em.getTransaction().begin();
+//            }
+//        }
+//        em.getTransaction().commit();
 
     }
 }

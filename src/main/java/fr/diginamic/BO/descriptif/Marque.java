@@ -2,7 +2,7 @@ package fr.diginamic.BO.descriptif;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Persistence;
+
 import javax.persistence.Table;
 
 @Entity
@@ -10,10 +10,10 @@ import javax.persistence.Table;
 public class Marque extends DescriptifProduit {
 
     public Marque() {
+
     }
 
     @Override
-
     public String getLibelle() {
         return super.getLibelle();
     }

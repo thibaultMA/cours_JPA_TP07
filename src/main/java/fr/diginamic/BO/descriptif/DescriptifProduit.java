@@ -10,7 +10,6 @@ import javax.persistence.*;
 public abstract class DescriptifProduit {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    //@GenericGenerator(name = "seq", strategy = "increment")
     private Long id;
 
     protected String libelle;
